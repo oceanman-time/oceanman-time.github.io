@@ -33,7 +33,7 @@
     // Duration of one ocean man in milliseconds
     const oceanmanDuration = 128000;
 
-    while(true){
+    function computeTimer(){
         //Computing how many ocean man songs have passed
         currentDate = new Date();
         oceanManCount = ( currentDate - initialDate ) / oceanmanDuration;
@@ -44,11 +44,15 @@
         //Displaying initial time
         document.getElementById('initial-time').innerHTML = initialDate.toLocaleString();
 
+        //Set timeout to the next full Ocean Man
+        setTimeout(function () { computeTimer(); }, ((oceanManCountInt + 1) - oceanManCount) );
+
         //Refreshing the page if counter increased by one
         if(oceanManCount === oceanManCountInt){
             window.location.reload();
         }
     }
+
 </script>
 
 </body>
