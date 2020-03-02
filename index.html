@@ -47,7 +47,7 @@
         document.getElementById('oceanman-count').innerText = oceanManCountInt.toString();
 
         //Set timeout to the next full Ocean Man
-        setTimeout(function () { computeTimer(); }, ((oceanManCountInt + 1) - oceanManCount) );
+        setTimeout(function () { computeTimer(); }, ((oceanManCountInt + 1) - oceanManCount) * oceanmanDuration );
 
         //Refreshing the page if counter increased by one
         if(oceanManCount === oceanManCountInt){
