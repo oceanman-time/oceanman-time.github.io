@@ -23,19 +23,32 @@
     // Initial Date in milliseconds - Date of the Last Golden Wind Episode
     const initialDate = new Date('July 28, 2019 14:00:00 UTC+2:00');
 
-    // Getting the current date in milliseconds
-    var currentDate = new Date();
+    // Variable to store the current date in milliseconds
+    var currentDate;
+
+    // Variable to count Ocean Men
+    var oceanManCount;
+    var oceanManCountInt;
 
     // Duration of one ocean man in milliseconds
     const oceanmanDuration = 128000;
 
-    //Computing how many ocean man songs have passed
-    const oceanManCount = ( currentDate - initialDate ) / oceanmanDuration;
+    while(true){
+        //Computing how many ocean man songs have passed
+        currentDate = new Date();
+        oceanManCount = ( currentDate - initialDate ) / oceanmanDuration;
+        oceanManCountInt = Math.floor(oceanManCount);
 
-    document.getElementById('oceanman-count').innerText = oceanManCount.toString();
+        document.getElementById('oceanman-count').innerText = oceanManCount.toString();
 
-    //Displaying initial time
-    document.getElementById('initial-time').innerHTML = initialDate.toLocaleString();
+        //Displaying initial time
+        document.getElementById('initial-time').innerHTML = initialDate.toLocaleString();
+
+        //Refreshing the page if counter increased by one
+        if(oceanManCount === oceanManCountInt){
+            window.location.reload();
+        }
+    }
 </script>
 
 </body>
