@@ -33,6 +33,9 @@
     // Duration of one ocean man in milliseconds
     const oceanmanDuration = 128000;
 
+    //Displaying initial time
+    document.getElementById('initial-time').innerHTML = initialDate.toLocaleString();
+
     computeTimer();
 
     function computeTimer(){
@@ -42,9 +45,6 @@
         oceanManCountInt = Math.floor(oceanManCount);
 
         document.getElementById('oceanman-count').innerText = oceanManCountInt.toString();
-
-        //Displaying initial time
-        document.getElementById('initial-time').innerHTML = initialDate.toLocaleString();
 
         //Set timeout to the next full Ocean Man
         setTimeout(function () { computeTimer(); }, ((oceanManCountInt + 1) - oceanManCount) );
